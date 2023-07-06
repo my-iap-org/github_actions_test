@@ -7,8 +7,8 @@ name: On_Demand_Vars
 # events but only for the master/release branch
 on:
   schedule:
-    - cron: '* * * * *'
-    - cron: '09 6 * * *'
+    - cron: '5 * * * *'
+    - cron: '25 18 * * *'
 
 env:
   GIT_USER: ${{ secrets.GIT_USER }}
