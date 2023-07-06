@@ -1,8 +1,9 @@
 name: schedule_test
 on:
   schedule:
-    - cron: '6 * * * *'
-    - cron: '25 7,19 * * *'
+    - cron: '*/6 * * * *'
+    - cron: '45 7,19 * * *'
+  workflow_dispatch:
 
 jobs:
   test_schedule:
