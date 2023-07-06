@@ -4,6 +4,10 @@ on:
     - cron: '*/6 * * * *'
     - cron: '45 7,19 * * *'
   workflow_dispatch:
+  push:
+    branches: [ main, release/* ]
+  pull_request:
+    branches: [ main, release/* ]
 
 jobs:
   test_schedule:
