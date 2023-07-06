@@ -8,8 +8,8 @@ name: On_Demand_Vars
 on:
   workflow_dispatch:
   schedule:
-    - cron: ‘* * * * 3’
-    - cron: ‘39 5 * * 1’
+    - cron: '* * * * *'
+    - cron: '40 5 * * *'
   # push:
   #   branches: [ main, release/* ]
   # pull_request:
