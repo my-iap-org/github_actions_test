@@ -54,9 +54,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is ${{ steps.branch-name.outputs.current_branch }} branch"
-  run_if_current_branch_is_1.10.0:
-    if: steps.branch-name.outputs.current_branch == '1.10.0'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "This is ${{ steps.branch-name.outputs.current_branch }} branch"
       
