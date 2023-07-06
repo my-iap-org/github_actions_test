@@ -6,11 +6,25 @@ name: On_Demand_Vars
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master/release branch
 on:
-  workflow_dispatch:
-  push:
-    branches: [ main, release/* ]
-  pull_request:
-    branches: [ main, release/* ]
+  # workflow_dispatch:
+  # push:
+  #   branches: [ main, release/* ]
+  # pull_request:
+  #   branches: [ main, release/* ]
+  # schedule:
+  #   # * is a special character in YAML so you have to quote this string
+  #   - cron:  '30 5,17 * * *'
+  # workflow_run:
+  #   workflows: [Run Tests]
+  #   types:
+  #     - completed
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'ag185261@ncr.com'
+        required: false
+        type: string
 
 env:
   GIT_USER: ${{ secrets.GIT_USER }}
