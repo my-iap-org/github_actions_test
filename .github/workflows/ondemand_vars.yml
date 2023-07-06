@@ -6,11 +6,12 @@ name: On_Demand_Vars
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master/release branch
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '* 7,19 * * *'
-    - cron: '10 * * * *'
-    - cron:  '10 * * * *'
+  # schedule:
+  #   # * is a special character in YAML so you have to quote this string
+  #   - cron:  '* 7,19 * * *'
+  #   - cron: '10 * * * *'
+  #   - cron:  '10 * * * *'
+  workflow_dispatch:
 
 env:
   GIT_USER: ${{ secrets.GIT_USER }}
