@@ -6,10 +6,10 @@ name: On_Demand_Vars
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master/release branch
 on:
-  schedule:
-  - cron: "* * * * *"
-  - cron: "33 5 * * *"
-  workflow_dispatch:
+workflow_dispatch:
+schedule:
+  - cron: ‘30 13 * * 3’
+  - cron: ‘0 6 * * 1’
   # push:
   #   branches: [ main, release/* ]
   # pull_request:
