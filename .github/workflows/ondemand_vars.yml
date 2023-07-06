@@ -71,21 +71,13 @@ jobs:
 
       - name: Print the input name to STDOUT
         run: echo The username is ${{ inputs.username }}
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm test
-      - name: Archive production artifacts
+      - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: dist-without-markdown
-          path: |
-            dist
-            !dist/**/*.md
-            retention-days: 1
+          name: my-artifact
+          path: my_file.txt
+          retention-days: 1
+
   job1:
     runs-on: ubuntu-latest
     # Map a step output to a job output
