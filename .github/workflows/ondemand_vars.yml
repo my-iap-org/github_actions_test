@@ -23,19 +23,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # extract branch name
-      - name: Extract branch name
-        if: github.event_name != 'pull_request'
-        shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      # extract branch name on pull request
-      - name: Print branch name
-        if: github.event_name == 'pull_request'
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-
-      # print branch name
       - name: Get branch name
-        run: echo 'The branch name is' $BRANCH_NAME
+        id: branch-name
+        uses: tj-actions/branch-names@v7
+        
+      - name: Running on the default branch.
+        if: steps.branch-name.outputs.is_default == 'true'
+        run: |
+          echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}" 
+        # Outputs: "Running on default: main"
+      
+      - name: Running on a pull request branch.
+        if: steps.branch-name.outputs.is_default == 'false'
+        run: |
+          echo "Running on pr: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on pr: feature/test"
+      
+      - name: Running on a pull request branch.
+        if: steps.branch-name.outputs.is_default == 'false'
+        run: |
+          echo "Base branch: ${{ steps.branch-name.outputs.base_ref_branch }}"
+        # Outputs: "Base branch: main"
+        
+      - name: Running on any event
+        run: |
+          echo "Default branch: ${{ steps.branch-name.outputs.default_branch }}"
+        # Outputs: "Default branch: main"
       
