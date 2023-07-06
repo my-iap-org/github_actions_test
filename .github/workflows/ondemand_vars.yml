@@ -50,7 +50,7 @@ jobs:
           echo "Default branch: ${{ steps.branch-name.outputs.default_branch }}"
         # Outputs: "Default branch: main"
   run_if_current_branch_is_main:
-    if: steps.branch-name.outputs.current_branch == 'main'
+    if: github.event.label.name != 'bug'
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is ${{ steps.branch-name.outputs.current_branch }} branch"
