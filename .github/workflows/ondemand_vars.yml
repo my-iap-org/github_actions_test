@@ -75,9 +75,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: $dir/branch
+          path: branch
           retention-days: 1
-      - run: echo $dir
+      - run: ls
 
   job1:
     runs-on: ubuntu-latest
