@@ -75,9 +75,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: branch
+          path: ./branch
           retention-days: 1
-      - run: ls
+      - name: Print files
+        run: |-
+          ls | grep branch
 
   job1:
     runs-on: ubuntu-latest
