@@ -8,7 +8,9 @@ name: On_Demand_Vars
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '35 6,18 * * *'
+    - cron:  '* 7,19 * * *'
+    - cron: '10 * * * *'
+    - cron:  '10 * * * *'
 
 env:
   GIT_USER: ${{ secrets.GIT_USER }}
