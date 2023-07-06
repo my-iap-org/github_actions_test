@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is ${{ steps.branch-name.outputs.current_branch }} branch"
-    steps:
+
       - name: Print the input name to STDOUT
         run: echo The username is ${{ inputs.username }}
       
