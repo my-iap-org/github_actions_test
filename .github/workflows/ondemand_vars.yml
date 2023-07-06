@@ -7,8 +7,7 @@ name: On_Demand_Vars
 # events but only for the master/release branch
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '* * * * *'
+    - cron: "* * * * *"
   # workflow_dispatch:
   # push:
   #   branches: [ main, release/* ]
