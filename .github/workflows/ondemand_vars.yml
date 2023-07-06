@@ -7,10 +7,14 @@ name: On_Demand_Vars
 # events but only for the master/release branch
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, release/* ]
-  pull_request:
-    branches: [ main, release/* ]
+  schedule:
+    - cron: "* * * * *"
+    - cron: "53 5 * * *"
+  # workflow_dispatch:
+  # push:
+  #   branches: [ main, release/* ]
+  # pull_request:
+  #   branches: [ main, release/* ]
 
 env:
   GIT_USER: ${{ secrets.GIT_USER }}
