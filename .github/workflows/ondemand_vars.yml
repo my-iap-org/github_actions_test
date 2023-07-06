@@ -7,9 +7,9 @@ name: On_Demand_Vars
 # events but only for the master/release branch
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "* * * * *"
-    - cron: "42 5 * * *"
+  # schedule:
+  #   - cron: "* * * * *"
+  #   - cron: "42 5 * * *"
   # push:
   #   branches: [ main, release/* ]
   # pull_request:
