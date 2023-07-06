@@ -6,14 +6,14 @@ name: On_Demand_Vars
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master/release branch
 on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/10 * * * * *'
   workflow_dispatch:
   # push:
   #   branches: [ main, release/* ]
   # pull_request:
   #   branches: [ main, release/* ]
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '* * * * *'
   # workflow_run:
   #   workflows: [Run Tests]
   #   types:
